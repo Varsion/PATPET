@@ -37,6 +37,6 @@ Route::prefix('/like')->group(function () {
 });
 
 Route::prefix('/relation')->group(function () {
-    Route::get('follow', 'RelationController@follow');
+    Route::get('follow', 'RelationController@new');
     Route::get('following', 'RelationController@all');
 });
