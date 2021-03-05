@@ -19,6 +19,24 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::prefix('/article')->namespace('Admin')->group(function () {
+Route::prefix('/article')->group(function () {
+    Route::get('tags','ArticleController@all');
+    Route::get('users', 'ArticleController@users');
+    Route::get('search','ArticleController@search');
+    Route::post('new', 'ArticleController@new');
+});
 
+Route::prefix('/comment')->group(function () {
+    Route::get('comments','CommentController@all');
+    Route::post('new','CommentController@new');
+});
+
+Route::prefix('/like')->group(function () {
+    Route::get('like','LikeController@like');
+    Route::get('likes','LikeController@all');
+});
+
+Route::prefix('/relation')->group(function () {
+    Route::get('follow', 'RelationController@follow');
+    Route::get('following', 'RelationController@all');
 });

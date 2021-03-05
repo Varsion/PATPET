@@ -19,7 +19,7 @@ class Controller extends BaseController
      * @params file
      * @return int $pic_id
      */ 
-    public static function pic($pic){
+    public static function upload($pic){
         $path = $pic->store('public');
         $res = str_replace('public/','storage/',$path);
         $pic_id = Img::upload($res);
