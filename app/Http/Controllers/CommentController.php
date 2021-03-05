@@ -25,13 +25,14 @@ class CommentController extends Controller
      */
     public function new(Request $request) {
         $author = auth()->id;
+        //$author = 1;
         $article = $request['article'];
         $comment = $request['comment'];
 
         $res = Comment::new($author,$article,$comment);
 
         return $res ?
-            json_success('Comment add Success', $res, 200) :
+            json_success('Comment add Success', null, 200) :
             json_fail('Comment add Fail', null, 100);
     }
 }

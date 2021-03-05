@@ -10,7 +10,7 @@ class Comment extends Model
     public $timestamps = true;
     protected $primaryKey = 'id';
 
-    protected $fillable = ['*'];
+    protected $fillable = ['author', 'article', 'comment'];
 
     public static function all_comments($article) {
         try {
@@ -22,7 +22,7 @@ class Comment extends Model
                         ->get();
             return $res ? $res : false;
         } catch (\Exception $e) {
-            logError("文章评论获取失败", [$e->getMessage()]);
+            logError("Article Comments get Failed", [$e->getMessage()]);
             return false;
         }
     }
@@ -36,7 +36,7 @@ class Comment extends Model
             ]);
             return $res ? $res : false;
         } catch (\Exception $e) {
-            logError("评论创建失败", [$e->getMessage()]);
+            logError("Comment creation Filed", [$e->getMessage()]);
             return false;
         }
     }

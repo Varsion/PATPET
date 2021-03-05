@@ -11,7 +11,8 @@ class RelationController extends Controller
      * one follow another one
      */
     public function new(Request $request){
-        $follower = auth()->id;
+        //$follower = auth()->id;
+        $follower = 1;
         $followed = $request['user'];
 
         $res = Relation::new($follower,$followed);
@@ -25,7 +26,8 @@ class RelationController extends Controller
      * now user followed list
      */
     public function all(){
-        $follower = auth()->id;
+        //$follower = auth()->id;
+        $follower = 1;
         $res = Relation::follows($follower);
 
         return $res ?

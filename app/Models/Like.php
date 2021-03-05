@@ -20,17 +20,23 @@ class Like extends Model
             ]);
             return $res ? $res : false;
         } catch (\Exception $e) {
-            logError("文章点赞失败", [$e->getMessage()]);
+            logError("Article Like Failed", [$e->getMessage()]);
             return false;
         }
     }
 
     public static function likes($user) {
         try {
-            $res = self::paginate(12);
+            $res = self::join("articles as article", "article.id", "likes.article")
+                        ->join("tags as tag", "article.tag", "tag.id")
+                        ->join("users as user", "article.author", "user.id")
+                        ->join("imgs as img", "img.id", "article.pic")
+                        ->select("article.id", "article.title", "img.path", "user.name as username", "tag.name as tag")
+                        ->where("likes.user",$user)
+                        ->paginate(12);
             return $res ? $res : false;
         } catch (\Exception $e) {
-            logError("收藏文章获取失败", [$e->getMessage()]);
+            logError("Likes' Article get Failed", [$e->getMessage()]);
             return false;
         }
     }

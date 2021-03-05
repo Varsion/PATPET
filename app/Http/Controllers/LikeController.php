@@ -13,7 +13,6 @@ class LikeController extends Controller
     public function like(Request $request) {
         $article = $request['article'];
         $user = auth()->id;
-
         $res = Like::new($article,$user);
         return $res ?
             json_success('Like Success', null, 200) :

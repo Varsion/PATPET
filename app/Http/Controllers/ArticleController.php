@@ -24,6 +24,18 @@ class ArticleController extends Controller
     }
 
     /**
+     * Article info
+     */
+    public function info(Request $request) {
+        $article = $request['article'];
+        $res = Article::getinfo($article);
+
+        return $res ?
+            json_success('Article info get Success', $res, 200) :
+            json_fail('Article info get Fail', null, 100);
+    }
+
+    /**
      * on user's or other user's
      */
     public function users(Request $request) {

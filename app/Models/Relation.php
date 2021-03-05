@@ -21,7 +21,7 @@ class Relation extends Model
             ]);
             return $res ? $res : false;
         } catch (\Exception $e) {
-            logError("关注失败", [$e->getMessage()]);
+            logError("Follow Failed", [$e->getMessage()]);
             return false;
         }
     }
@@ -30,12 +30,12 @@ class Relation extends Model
         try {
             $res = self::join('users as user','relations.followed','user.id')
                         ->join('imgs as img','user.avatar','img.path')
-                        ->select('user.name','img.path as avatar')
-                        ->where('raletions.follower',$follower)
+                        ->select('user.id', 'user.name','img.path as avatar')
+                        ->where('relations.follower',$follower)
                         ->paginate(12);
             return $res ? $res : false;
         } catch (\Exception $e) {
-            logError("关注列表获取失败", [$e->getMessage()]);
+            logError("Follow list get Failed", [$e->getMessage()]);
             return false;
         }
     }

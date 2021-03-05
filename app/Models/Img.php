@@ -20,7 +20,7 @@ class Img extends Model
             ]);
             return $res ? $res->id : false;
         } catch (\Exception $e) {
-            logError("图片文件存入失败", [$e->getMessage()]);
+            logError("Img File upload Failed", [$e->getMessage()]);
             return false;
         }
     }

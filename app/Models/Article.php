@@ -10,18 +10,34 @@ class Article extends Model
     public $timestamps = true;
     protected $primaryKey = 'id';
 
-    protected $fillable = ['*'];
+    protected $fillable = ["pic","title","author","tag","content"];
 
     public static function all_article($tag){
         try {
             $res = self::join("tags as tag","articles.tag","tag.id")
                         ->join("users as user", "articles.author", "user.id")
-                        ->select("articles.title", "articles.pic", "user.name as user", "tag.name as tag")
+                        ->join("imgs as img", "img.id", "articles.pic")
+                        ->select("articles.id", "articles.title", "img.path", "user.name as username", "tag.name as tag")
                         ->where("articles.tag",$tag)
                         ->paginate(12);
             return $res ? $res : false;
         } catch (\Exception $e) {
-            logError("文章列表获取失败", [$e->getMessage()]);
+            logError("Article list get Failed.", [$e->getMessage()]);
+            return false;
+        }
+    }
+
+    public static function getinfo($article) {
+        try {
+            $res = self::join("tags as tag", "articles.tag", "tag.id")
+                        ->join("users as user", "articles.author", "user.id")
+                        ->join("imgs as img", "img.id", "articles.pic")
+                        ->select("articles.id", "articles.title", "img.path", "articles.content", "user.name as username", "tag.name as tag")
+                        ->where("articles.id", $article)
+                        ->get();
+            return $res ? $res : false;
+        } catch (\Exception $e) {
+            logError("Article info get Failed.", [$e->getMessage()]);
             return false;
         }
     }
@@ -30,12 +46,13 @@ class Article extends Model
         try {
             $res = self::join("tags as tag", "articles.tag", "tag.id")
                         ->join("users as user", "articles.author", "user.id")
-                        ->select("articles.title", "articles.pic", "user.name as user", "tag.name as tag")
+                        ->join("imgs as img", "img.id", "articles.pic")
+                        ->select("articles.id", "articles.title", "img.path", "user.name as username", "tag.name as tag")
                         ->where("articles.author", $user)
                         ->paginate(12);
             return $res ? $res : false;
         } catch (\Exception $e) {
-            logError("用户文章列表获取失败", [$e->getMessage()]);
+            logError("User's Article list get Failed.", [$e->getMessage()]);
             return false;
         }
     }
@@ -43,13 +60,14 @@ class Article extends Model
     public static function search($key) {
         try {
             $res = self::join("tags as tag", "articles.tag", "tag.id")
-                ->join("users as user", "articles.author", "user.id")
-                ->select("articles.title", "articles.pic", "user.name as user", "tag.name as tag")
-                ->where("articles.title", "like", $key)
-                ->paginate(12);
+                        ->join("users as user", "articles.author", "user.id")
+                        ->join("imgs as img", "img.id", "articles.pic")
+                        ->select("articles.id", "articles.title", "img.path", "user.name as username", "tag.name as tag")
+                        ->where("articles.title", "like", '%'.$key.'%')
+                        ->paginate(12);
             return $res ? $res : false;
         } catch (\Exception $e) {
-            logError("文章搜索失败", [$e->getMessage()]);
+            logError("Article Search Failed", [$e->getMessage()]);
             return false;
         }
     }
@@ -65,7 +83,7 @@ class Article extends Model
             ]);
             return $res ? $res : false;
         } catch (\Exception $e) {
-            logError("文章新建失败", [$e->getMessage()]);
+            logError("Article Creation Failed", [$e->getMessage()]);
             return false;
         }
     }
