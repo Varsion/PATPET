@@ -17,8 +17,8 @@ class RelationController extends Controller
         $res = Relation::new($follower,$followed);
 
         return $res ?
-            json_success('关注成功', null, 200) :
-            json_fail('关注失败', null, 100);
+            json_success('Follow Success', null, 200) :
+            json_fail('Follow Fail', null, 100);
     }
 
     /**
@@ -29,8 +29,8 @@ class RelationController extends Controller
         $res = Relation::follows($follower);
 
         return $res ?
-            json_success('关注列表获取成功', $res, 200) :
-            json_fail('关注列表获取失败', null, 100);
+            json_success('Follow list get Success', $res, 200) :
+            json_fail('Follow list get Fail', null, 100);
 
     }
 }

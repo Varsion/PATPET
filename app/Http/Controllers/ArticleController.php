@@ -19,8 +19,8 @@ class ArticleController extends Controller
         $res = Article::all_article($tag);
 
         return $res ?
-            json_success('文章列表获取成功', $res, 200) :
-            json_fail('文章列表获取失败', null, 100);
+            json_success('Article list get Success', $res, 200) :
+            json_fail('Article list get Fail', null, 100);
     }
 
     /**
@@ -34,8 +34,8 @@ class ArticleController extends Controller
         $res = Article::user_article($user);
 
         return $res ?
-            json_success('文章列表获取成功', $res, 200) :
-            json_fail('文章列表获取失败', null, 100);
+            json_success('Article list get Success', $res, 200) :
+            json_fail('Article list get Fail', null, 100);
     }
 
     /**
@@ -47,8 +47,8 @@ class ArticleController extends Controller
         $res = Article::search($key);
 
         return $res ?
-            json_success('搜索成功', $res, 200) :
-            json_fail('搜索失败或没有相关内容', null, 100);
+            json_success('Serach Success', $res, 200) :
+            json_fail('Serach Fail or None about this', null, 100);
 
     }
 
@@ -68,8 +68,8 @@ class ArticleController extends Controller
         $res = Article::new_article($author,$title,$pic_id,$tag,$content);
 
         return $res ?
-            json_success('文章发布成功', null, 200) :
-            json_fail('文章发布失败', null, 100);
+            json_success('Artcile release Success', null, 200) :
+            json_fail('Artcile release Fail', null, 100);
     }
 
 }

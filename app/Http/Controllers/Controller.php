@@ -14,8 +14,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     /*
-     * 转存图片
-     * @Author Varsion
+     * Upload the img
      * @params file
      * @return int $pic_id
      */ 

@@ -16,8 +16,8 @@ class CommentController extends Controller
         $res = Comment::all_comments($article);
 
         return $res ?
-            json_success('评论获取成功', $res, 200) :
-            json_fail('评论获取失败或没有评论', null, 100);
+            json_success('Comment list get Success', $res, 200) :
+            json_fail('Comment list get Fail or No Comments about this', null, 100);
     }
 
     /**
@@ -31,7 +31,7 @@ class CommentController extends Controller
         $res = Comment::new($author,$article,$comment);
 
         return $res ?
-            json_success('评论成功', $res, 200) :
-            json_fail('评论失败', null, 100);
+            json_success('Comment add Success', $res, 200) :
+            json_fail('Comment add Fail', null, 100);
     }
 }

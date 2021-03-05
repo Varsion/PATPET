@@ -16,8 +16,8 @@ class LikeController extends Controller
 
         $res = Like::new($article,$user);
         return $res ?
-            json_success('点赞成功', null, 200) :
-            json_fail('点赞失败', null, 100);
+            json_success('Like Success', null, 200) :
+            json_fail('Like Fail', null, 100);
     }
 
     /**
@@ -28,7 +28,7 @@ class LikeController extends Controller
         $res = Like::likes($user);
 
         return $res ?
-            json_success('搜藏列表获取成功', $res, 200) :
-            json_fail('搜藏列表获取失败', null, 100);
+            json_success('like list get Success', $res, 200) :
+            json_fail('Like list get Fail', null, 100);
     }
 }
