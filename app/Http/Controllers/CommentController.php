@@ -7,6 +7,9 @@ use App\Models\Comment;
 
 class CommentController extends Controller
 {
+    /**
+     * the comments for the article
+     */
     public function all(Request $request) {
         $article = $request['article'];
 
@@ -17,6 +20,9 @@ class CommentController extends Controller
             json_fail('评论获取失败或没有评论', null, 100);
     }
 
+    /**
+     * new comments
+     */
     public function new(Request $request) {
         $author = auth()->id;
         $article = $request['article'];

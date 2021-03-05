@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-
 Route::prefix('/article')->group(function () {
     Route::get('tags','ArticleController@all');
     Route::get('users', 'ArticleController@users');
