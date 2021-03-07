@@ -1,17 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: myxy9
- * Date: 2020/4/28
- * Time: 13:15
- */
-
 if (!function_exists('privateDecrypt')) {
-    /**
-     * //解密
-     * @param string $encryptString
-     * @return string
-     */
     function privateDecrypt($encryptString = '')
     {
         $privateKey = storage_path('key/exam.key');
@@ -25,11 +13,6 @@ if (!function_exists('privateDecrypt')) {
 }
 
 if (!function_exists('publicEncrypt')) {
-    /**
-     * //加密
-     * @param string $data
-     * @return string
-     */
     function publicEncrypt($data = '')
     {
         $publicKey = storage_path('key/exam_pub.key');

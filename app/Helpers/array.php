@@ -1,6 +1,5 @@
 <?php
 
-//把null值处理成字符串中的空值
 if ( ! function_exists('deal_null')) {
     function deal_null(array $inputs){
         $arr=[];
@@ -15,7 +14,7 @@ if ( ! function_exists('deal_null')) {
     }
 }
 
-//返回图片后缀的数组
+
 if ( ! function_exists('exts_image')) {
     function exts_image(){
         return ['jpg','png','gif','jpeg'];
@@ -27,7 +26,7 @@ if ( ! function_exists('exts_doc')) {
         return ['doc','docx','xlsx','xls','ppt','pptx'];
     }
 }
-//返回音频文件后缀的数组
+
 if ( ! function_exists('exts_audio')) {
     function exts_audio(){
         return ['mp3'];

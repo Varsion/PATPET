@@ -1,11 +1,6 @@
 <?php
 if (!function_exists('getUrl')) {
-    /**
-     * get请求
-     * @param $url
-     * @param bool $header
-     * @return bool|string
-     */
+
     function getUrl($url, $header = false)
     {
         $ch = curl_init($url);
@@ -29,13 +24,7 @@ if (!function_exists('getUrl')) {
 
 
 if (!function_exists('postUrl')) {
-    /**
-     * post请求
-     * @param $url
-     * @param bool $postData
-     * @param bool $header
-     * @return bool|string
-     */
+
     function postUrl($url, $postData = false, $header = false)
     {
         $ch = curl_init($url);

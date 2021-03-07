@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+
+    <!--- basic page needs
+   ================================================== -->
+    <meta charset="utf-8">
+    <title>PAT PET</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+   ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+   ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+
+
+    <!-- script
+   ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+
+    <!-- favicons
+	================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body id="top">
+
+    <!-- header 
+   ================================================== -->
+    <header class="short-header">
+
+        <div class="gradient-block"></div>
+
+        <div class="row header-content">
+
+            <div class="logo">
+                <a href="index.html">
+                    <h1>PAT PET</h1>
+                </a>
+            </div>
+
+            <nav id="main-nav-wrap">
+                <ul class="main-navigation sf-menu">
+                    <li>
+                        <a href="index.html" title=""> HOME </a>
+                    </li>
+                    <li>
+                        <a href="main.html" title=""> FEATURED </a>
+                    </li>
+                    <li class="current">
+                        <a href="contact.html" title=""> CONTACT </a>
+                    </li>
+                    <li class="has-children">
+                        <a href="#2" title="">USER</a>
+                        <ul class="sub-menu">
+                            <!-- 未登陆 -->
+                            <li><a href="login.html">LOGIN</a></li>
+                            <!-- 已经登陆 -->
+
+                            <!-- 
+							<li><a href="#">ME</a></li>
+							<li><a href="#">LOG OUT</a></li> 
+						-->
+                        </ul>
+                    </li>
+                </ul>
+            </nav> <!-- end main-nav-wrap -->
+
+        </div>
+
+    </header> <!-- end header -->
+
+
+    <!-- content
+   ================================================== -->
+    <section id="content-wrap" class="blog-single">
+        <div class="row">
+            <div class="col-twelve">
+                    <form name="contact" id="contact" onsubmit="return ass()">
+
+                        <h1>Contact Us</h1>
+                        <fieldset>
+
+                            <div class="form-field">
+                                <input name="name" type="text" id="name" class="full-width"
+                                    placeholder="How to call you?" value="" required>
+                            </div>
+
+                            <div class="form-field">
+                                <input name="tel" type="text" id="tel" class="full-width"
+                                    placeholder="How to contact you?" value="" required>
+                            </div>
+                            <div class="message form-field">
+                                <textarea name="desc"" id=" desc" class="full-width"
+                                    placeholder="What do you want to tell us?" required></textarea>
+                            </div>
+
+                            <button type="submit" class="submit button-primary full-width-on-mobile">Send Now!</button>
+
+                        </fieldset>
+                    </form> <!-- end form -->
+            </div> <!-- end col-twelve -->
+        </div> <!-- end row -->
+
+
+    </section> <!-- end content -->
+
+
+    <!-- footer
+   ================================================== -->
+    <footer>
+
+        <div class="footer-main">
+
+            <div class="row">
+
+                <div class="col-four tab-full mob-full footer-info">
+
+                    <h4>About Our Site</h4>
+
+                    <p>
+                        Lorem ipsum Ut velit dolor Ut labore id fugiat in ut fugiat nostrud qui in dolore commodo eu
+                        magna Duis cillum dolor officia esse mollit proident Excepteur exercitation nulla. Lorem ipsum
+                        In reprehenderit commodo aliqua irure labore.
+                    </p>
+
+                </div> <!-- end footer-info -->
+
+
+                <div class="col-two tab-1-3 mob-1-2 social-links">
+
+                    <h4>Social</h4>
+
+                    <ul>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Dribbble</a></li>
+                        <li><a href="#">Google+</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+
+                </div> <!-- end social links -->
+
+
+            </div> <!-- end row -->
+
+        </div> <!-- end footer-main -->
+
+        <div class="footer-bottom">
+            <div class="row">
+
+                <div class="col-twelve">
+
+                    <div id="go-top">
+                        <a class="smoothscroll" title="Back to Top" href="#top"><i class="icon icon-arrow-up"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div> <!-- end footer-bottom -->
+
+    </footer>
+
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
+
+    <!-- Java Script
+   ================================================== -->
+    <script src="js/jquery.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        function ass() {
+            alert("Submit Success");
+            window.location.reload();
+            return false;
+        }
+    </script>
+
+</body>
+
+</html>

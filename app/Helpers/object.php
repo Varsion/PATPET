@@ -1,13 +1,6 @@
 <?php
 
 if ( ! function_exists('obj_info')) {
-    /**
-     * 返回格式化对象
-     * @param $status true or false
-     * @param $msg 消息
-     * @param null $data 数据
-     * @return stdClass
-     */
     function obj_info($status,$msg,$data=null){
         $newobj = new stdClass();
         $newobj->status = $status;
