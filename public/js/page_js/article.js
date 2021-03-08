@@ -50,6 +50,7 @@ function getQueryString(name) {
         success: function (data) {
             if(data.code == 200){
                 alert("Comment Submit Success");
+                window.location.reload();
             } else {
                 alert("Comment Submit Error");
             }
