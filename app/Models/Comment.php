@@ -16,7 +16,7 @@ class Comment extends Model
         try {
             $res = self::join('users as user', 'user.id', 'comments.author')
                         ->join('imgs as img', 'user.avatar', 'img.id')
-                        ->select('user.name', 'img.path', 'comments.comment', 'comments.created_at')
+                        ->select('user.name', 'img.path', 'comments.comment', 'comments.created_at', 'comments.author')
                         ->where('comments.article',$article)
                         ->orderBy('comments.created_at','asc')
                         ->get();

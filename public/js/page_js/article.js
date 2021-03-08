@@ -35,6 +35,10 @@ function getQueryString(name) {
     })
  }
 
+ function comment(){
+
+ }
+
 
 $().ready(function () {
     if(getQueryString('article')){
@@ -78,4 +82,28 @@ $().ready(function () {
         $("#article_content").empty();
         $("#article_content").append(str);
     });
+
+    $.get('/api/comment/comments?article='+article,function (data) {
+        var str = ``;
+        for(var i = 0; i < data.data.length; i++){
+            str += `
+            <div class="comments">
+                <img src="${data.data[i].path}" alt="" width="50px">
+                <i onclick="Follow(${data.data[i].author});" onselectstart="return false;">${data.data[i].name}</i>
+                <center>
+                    <p>
+                        ${data.data[i].comment}
+                    </p>
+                </center>
+                <span style="float: right;">${data.data[i].created_at}</span>
+                <center>
+                    <hr width="70%">
+                </center>
+            </div>
+            `;
+        }
+        $("#comment_content").empty();
+        $("#comment_content").append(str);
+    });
+
 })
