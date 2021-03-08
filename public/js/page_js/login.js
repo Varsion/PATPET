@@ -26,7 +26,8 @@ function login(){
         dataType: "json",
         success: function (data) {
             if(data.code == 200){
-                //Setcookie("token",data.data)
+                console.log(data.data.token);
+                Setcookie("token",data.data.token)
                 location.href = "index.html"
             }else{
                 alert("Email or Password Error");

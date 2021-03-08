@@ -46,9 +46,25 @@ class User extends \Illuminate\Foundation\Auth\User implements JWTSubject,Authen
     public static function getUserInfo($UserId, $array = [])
     {
         try {
-            return $array == null ?
-                self::where('id', $UserId)->get() :
-                self::where('id', $UserId)->get($array);
+            $res = self::select('*')
+                        ->where('id',$UserId)
+                        ->get();
+            return $res ? $res : false;
+        } catch (\Exception $e) {
+            logError("User Info get Failed", [$e->getMessage()]);
+            return null;
+        }
+    }
+
+    public static function edit($avatar,$id,$name,$desc){
+        try {
+            $res = self::where('id',$id)
+                        ->update([
+                            'avatar'        => $avatar,
+                            'name'          => $name,
+                            'introduction'  => $desc
+                        ]);
+            return $res ? $res : false;
         } catch (\Exception $e) {
             logError("User Info get Failed", [$e->getMessage()]);
             return null;

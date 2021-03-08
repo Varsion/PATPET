@@ -17,11 +17,16 @@ class Controller extends BaseController
      * Upload the img
      * @params file
      * @return int $pic_id
-     */ 
+     */
     public static function upload($pic){
         $path = $pic->store('public');
         $res = str_replace('public/','storage/',$path);
         $pic_id = Img::upload($res);
         return $pic_id ? $pic_id : false ;
+    }
+
+    public function test(){
+        $data = auth("user")->user()->id;
+        return json_success('Msg',$data,200);
     }
 }

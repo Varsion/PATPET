@@ -31,7 +31,7 @@ class ArticleController extends Controller
         $res = Article::getinfo($article);
 
         return $res ?
-            json_success('Article info get Success', $res, 200) :
+            json_success('Article info get Success', $res[0], 200) :
             json_fail('Article info get Fail', null, 100);
     }
 
@@ -39,7 +39,7 @@ class ArticleController extends Controller
      * on user's or other user's
      */
     public function users(Request $request) {
-        $user = auth("user")->id();
+        $user = auth("user")->user()->id;
         if ($request['user']) {
             $user = $request['user'];
         }
@@ -68,7 +68,7 @@ class ArticleController extends Controller
      * New Article
      */
     public function new(Request $request) {
-        $author = auth("user")->id();
+        $author = auth("user")->user()->id;
         $pic_id = 0;
         if ($request["pic"]) {
             $pic_id = self::upload($request["pic"]);

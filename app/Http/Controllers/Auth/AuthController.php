@@ -62,8 +62,7 @@ class AuthController extends Controller
     }
 
     /**
-     * 注册用户
-     *
+     * Register
      */
     public function registered(Request $registeredRequest)
     {
@@ -88,10 +87,22 @@ class AuthController extends Controller
      */
     public function info()
     {
-        $UserInfo = User::getUserInfo(auth()->id(), array('id', 'name'));
-        return $UserInfo != null ?
-            json_success('Get Success!', $UserInfo, 200) :
+        $UserInfo = User::getUserInfo(auth("user")->user()->id, array('id', 'name'));
+        return $UserInfo ?
+            json_success('Get Success!', $UserInfo[0], 200) :
             json_fail('Get Failed!', null, 100);
+    }
+
+    public function reset(Request $request){
+        $avatar = 0;
+        if($request['avatar']){
+            $avatar = self::upload($request['avatar']);
+        }
+        $res = User::edit($avatar, $request['id'], $request['name'], $request['desc']);
+        return $res ?
+            json_success('Edit Success!', null, 200) :
+            json_fail('Edit Failed!', null, 100);
+
     }
 }
 

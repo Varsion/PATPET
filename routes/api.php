@@ -24,6 +24,8 @@ Route::prefix('auth')->namespace('Auth')->group(function () {
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('registered', 'AuthController@registered');
+    Route::get('info', 'AuthController@info');
+    Route::post('editinfo', 'AuthController@reset');
 });
 /**
  * About Articles
@@ -62,4 +64,13 @@ Route::prefix('/like')->group(function () {
 Route::prefix('/relation')->group(function () {
     Route::get('follow', 'RelationController@new');
     Route::get('following', 'RelationController@all');
+});
+
+/**
+ * About Project Test
+ * Test ...
+ */
+Route::prefix('/test')->group(function () {
+
+    Route::any('test','Controller@test');
 });

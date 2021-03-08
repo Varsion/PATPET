@@ -28,7 +28,7 @@ class Article extends Model
                             ->where("articles.tag", $tag)
                             ->paginate(12);
             }
-            
+
             return $res ? $res : false;
         } catch (\Exception $e) {
             logError("Article list get Failed.", [$e->getMessage()]);
@@ -41,7 +41,7 @@ class Article extends Model
             $res = self::join("tags as tag", "articles.tag", "tag.id")
                         ->join("users as user", "articles.author", "user.id")
                         ->join("imgs as img", "img.id", "articles.pic")
-                        ->select("articles.id", "articles.title", "img.path", "articles.content", "user.name as username", "tag.name as tag")
+                        ->select("articles.id", "articles.title", "img.path", "articles.content", "user.name as username", "articles.author","tag.name as tag", "articles.created_at", "articles.tag as tag_id")
                         ->where("articles.id", $article)
                         ->get();
             return $res ? $res : false;

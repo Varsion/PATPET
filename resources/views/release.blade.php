@@ -22,10 +22,12 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/component.css" />
 
+
     <!-- script
    ================================================== -->
     <script src="js/modernizr.js"></script>
     <script src="js/pace.min.js"></script>
+    <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
     <script src="js/modernizr.custom.js"></script>
     <script src="js/mfb.js"></script>
 
@@ -83,67 +85,77 @@
 
     </header> <!-- end header -->
 
-    <ul id="menu" class="mfb-component--bl mfb-zoomin" data-mfb-toggle="hover" style="display: block;">
-        <li class="mfb-component__wrap">
-            <a href="#" class="mfb-component__button--main">
-                <i class="mfb-component__child-icon dr-icon dr-icon-menu"></i>
-            </a>
-            <ul class="mfb-component__list">
-                <li>
-                    <a data-mfb-label="User's" class="mfb-component__button--child" href="userPage.html">
-                        <i class="mfb-component__child-icon dr-icon dr-icon-user"></i>
-                    </a>
-                </li>
-                <li>
-                    <a data-mfb-label="Likes" class="mfb-component__button--child" href="userstar.html">
-                        <i class="mfb-component__child-icon dr-icon dr-icon-heart"></i>
-                    </a>
-                </li>
-                <li>
-                    <a data-mfb-label="Release New Post" class="mfb-component__button--child"
-                        href="/newArticle">
-                        <i class="mfb-component__child-icon dr-icon dr-icon-bullhorn"></i>
-                    </a>
-                </li>
-                <li>
-                    <a data-mfb-label="Setting" class="mfb-component__button--child" href="userInfo.html">
-                        <i class="mfb-component__child-icon dr-icon dr-icon-settings"></i>
-                    </a>
-                </li>
+        <ul id="menu" class="mfb-component--bl mfb-zoomin" data-mfb-toggle="hover" style="display: block;">
+            <li class="mfb-component__wrap">
+                <a href="#" class="mfb-component__button--main">
+                    <i class="mfb-component__child-icon dr-icon dr-icon-menu"></i>
+                </a>
+                <ul class="mfb-component__list">
+                    <li>
+                        <a data-mfb-label="User's" class="mfb-component__button--child" href="userPage.html">
+                            <i class="mfb-component__child-icon dr-icon dr-icon-user"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-mfb-label="Likes" class="mfb-component__button--child" href="userstar.html">
+                            <i class="mfb-component__child-icon dr-icon dr-icon-heart"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-mfb-label="Release New Post" class="mfb-component__button--child" href="release.html">
+                            <i class="mfb-component__child-icon dr-icon dr-icon-bullhorn"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-mfb-label="Setting" class="mfb-component__button--child" href="userInfo.html">
+                            <i class="mfb-component__child-icon dr-icon dr-icon-settings"></i>
+                        </a>
+                    </li>
 
-            </ul>
-        </li>
-    </ul>
+                </ul>
+            </li>
+        </ul>
 
-    <section class="blog-single">
         <div class="row">
             <div class="col-twelve">
-                    <form name="info_form" id="info_form">
-                        <fieldset>
-                            <input name="userid" type="hidden" id="userid" value="" >
+                <section id="bricks">
 
-                            <div class="form-field">
-                                <h3>Avatar:</h3>
-                                <input name="avatar" type="file" id="avatar" class="full-width">
+                    <form name="cForm" id="cForm" method="post" action="" style="width: 80%;">
+                        <fieldset>
+
+                            <div class="form-field" style="width: 300px;">
+                                <h3>Title:</h3>
+                                <input name="title" type="text" id="title" class="full-width" placeholder="Title" value="">
+                            </div>
+
+                            <div class="form-field" style="width: 300px;">
+                                <h3>Tag:</h3>
+                                <input name="Tag" type="text" id="Tag" class="full-width" placeholder="Tag" value="">
                             </div>
 
                             <div class="form-field">
-                                <h3>Name：</h3>
-                                <input name="name" type="text" id="name" class="full-width" placeholder="nick" value="">
+                                <h3>Hero image:</h3>
+                                <input name="hero" type="file" id="hero">
                             </div>
 
                             <div class="message form-field">
-                                <h3>Intruduction</h3>
-                                <textarea name="desc" id="desc" class="full-width" placeholder="Intruduction"></textarea>
+                                <h3>Content:</h3>
+                                <textarea name="desc"" id=" desc" class="full-width" placeholder="Content..."></textarea>
                             </div>
 
-                            <button type="button" class="submit button-primary full-width-on-mobile" onclick="save();">Save</button>
+                            <button type="submit" class="submit button-primary full-width-on-mobile">Release Now</button>
 
                         </fieldset>
-                    </form>
+                    </form> <!-- end form -->
+
+                    <hr width="80%">
+                </section> <!-- end bricks -->
             </div>
         </div>
-    </section>
+
+
+
+
 
     <!-- footer
    ================================================== -->
@@ -209,7 +221,6 @@
     <script src="js/main.js"></script>
     <script src="js/cookie.js"></script>
     <script src="js/verify.js"></script>
-    <script src="js/page_js/userinfo.js"></script>
 
 </body>
 <script src="js/ytmenu.js"></script>

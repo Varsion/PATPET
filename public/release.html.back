@@ -41,7 +41,7 @@
 
 <body id="top">
 
-    <!-- header 
+    <!-- header
    ================================================== -->
     <header class="short-header">
 
@@ -69,10 +69,10 @@
                     <li class="has-children current">
                         <a href="#2" title="">USER</a>
                         <ul class="sub-menu">
-                            
+
 							<li><a href="userPage.html">ME</a></li>
-							<li><a href="#">LOG OUT</a></li> 
-						
+							<li><a href="#">LOG OUT</a></li>
+
                         </ul>
                     </li>
                 </ul>
@@ -219,6 +219,8 @@
     <script src="js/plugins.js"></script>
     <script src="js/jquery.appear.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/cookie.js"></script>
+    <script src="js/verify.js"></script>
 
 </body>
 <script src="js/ytmenu.js"></script>

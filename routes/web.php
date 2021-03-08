@@ -16,4 +16,4 @@ Route::get('/', function () {
         //return redirect("/front/index.html");
         return json_success("Patpet is Runing", 'Patpet is Runing',200);
 });
-
+Route::view('newArticle', 'release');
