@@ -12,7 +12,7 @@ class LikeController extends Controller
      */
     public function like(Request $request) {
         $article = $request['article'];
-        $user = auth()->id;
+        $user = auth("user")->id();
         $res = Like::new($article,$user);
         return $res ?
             json_success('Like Success', null, 200) :
@@ -23,7 +23,8 @@ class LikeController extends Controller
      * now user likes list
      */
     public function likes() {
-        $user = auth()->id;
+        $user = auth("user")->id();
+        $user = 1;
         $res = Like::likes($user);
 
         return $res ?

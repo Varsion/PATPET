@@ -14,12 +14,21 @@ class Article extends Model
 
     public static function all_article($tag){
         try {
-            $res = self::join("tags as tag","articles.tag","tag.id")
-                        ->join("users as user", "articles.author", "user.id")
-                        ->join("imgs as img", "img.id", "articles.pic")
-                        ->select("articles.id", "articles.title", "img.path", "user.name as username", "tag.name as tag")
-                        ->where("articles.tag",$tag)
-                        ->paginate(12);
+            if ($tag == 0) {
+                $res = self::join("tags as tag", "articles.tag", "tag.id")
+                            ->join("users as user", "articles.author", "user.id")
+                            ->join("imgs as img", "img.id", "articles.pic")
+                            ->select("articles.id", "articles.title", "img.path", "user.name as username", "tag.name as tag")
+                            ->paginate(12);
+            } else {
+                $res = self::join("tags as tag", "articles.tag", "tag.id")
+                            ->join("users as user", "articles.author", "user.id")
+                            ->join("imgs as img", "img.id", "articles.pic")
+                            ->select("articles.id", "articles.title", "img.path", "user.name as username", "tag.name as tag")
+                            ->where("articles.tag", $tag)
+                            ->paginate(12);
+            }
+            
             return $res ? $res : false;
         } catch (\Exception $e) {
             logError("Article list get Failed.", [$e->getMessage()]);

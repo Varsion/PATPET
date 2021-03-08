@@ -81,20 +81,20 @@
 
         <section>
             <div id="wrapper" class="login-page">
-                <div id="login_form" class="form">
-                    <form class="register-form">
-                        <input type="text" placeholder="Nick name" id="name" />
-                        <input type="text" placeholder="Email" id="email" />
-                        <input type="password" placeholder="Password" id="password" />
-                        <button id="create">
+                <div class="form">
+                    <form class="register-form" id="register_form">
+                        <input type="text" placeholder="Nick name" name="name" />
+                        <input type="email" placeholder="Email" name="email" />
+                        <input type="password" placeholder="Password" name="password" />
+                        <button type="button" onclick="register();">
                             <h3 style="color: #FFFFFF;">Sign up</h3>
                         </button>
                         <p class="message">Have one? <a href="#">Login now</a></p>
                     </form>
-                    <form class="login-form">
-                        <input type="email" placeholder="Email" id="user_email" />
-                        <input type="password" placeholder="Password" id="password" />
-                        <button id="login">
+                    <form class="login-form" id="login_form">
+                        <input type="email" placeholder="Email" name="email"/>
+                        <input type="password" placeholder="Password" name="password" />
+                        <button type="button" onclick="login();">
                             <h3 style="color: #FFFFFF;">Login</h3>
                         </button>
                         <p class="message">Don't have an account? <a href="#">Join</a></p>
@@ -157,9 +157,9 @@
 
     </footer>
 
-    <div id="preloader">
+    <!-- <div id="preloader">
         <div id="loader"></div>
-    </div>
+    </div> -->
 
     <!-- Java Script
    ================================================== -->

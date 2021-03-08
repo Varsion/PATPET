@@ -24,8 +24,7 @@ class CommentController extends Controller
      * new comments
      */
     public function new(Request $request) {
-        $author = auth()->id;
-        //$author = 1;
+        $author = auth("user")->id();
         $article = $request['article'];
         $comment = $request['comment'];
 

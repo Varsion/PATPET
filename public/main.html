@@ -20,13 +20,26 @@
    <link rel="stylesheet" href="css/main.css">
    <!-- script
    ================================================== -->
-	<script src="js/modernizr.js"></script>
-	<script src="js/pace.min.js"></script>
+   <script src="js/modernizr.js"></script>
+   <script src="js/pace.min.js"></script>
 
    <!-- favicons
 	================================================== -->
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<style>
+		.product-buyer-name {
+
+		max-width: 110px;
+
+		overflow: hidden;
+
+		text-overflow: ellipsis;
+
+		white-space: nowrap;
+
+		}
+	</style>
 
 </head>
 
@@ -44,32 +57,32 @@
 	         <a href="index.html"><h1>PAT PET</h1></a>
 	    </div>
 
-	   	<nav id="main-nav-wrap">
-	   		<ul class="main-navigation sf-menu">
-	   			<li>
-	   				<a href="index.html" title=""> HOME </a>
-	   			</li>
-	   			<li class="current">
-	   				<a href="main.html" title=""> FEATURED </a>
-	   			</li>
-	   			<li>
-	   				<a href="contact.html" title=""> CONTACT </a>
-	   			</li>
-	   			<li class="has-children">
-	   				<a href="#2" title="">USER</a>
-	   				<ul class="sub-menu">
-	   					<!-- 未登陆 -->
-	   					<li><a href="login.html">LOGIN</a></li>
-	   					<!-- 已经登陆 -->
+	   			<nav id="main-nav-wrap">
+	   			    <ul class="main-navigation sf-menu">
+	   			        <li>
+	   			            <a href="index.html" title=""> HOME </a>
+	   			        </li>
+	   			        <li class="current">
+	   			            <a href="main.html" title=""> FEATURED </a>
+	   			        </li>
+	   			        <li>
+	   			            <a href="contact.html" title=""> CONTACT </a>
+	   			        </li>
+	   			        <li class="has-children">
+	   			            <a href="#2" title="">USER</a>
+	   			            <ul class="sub-menu">
+	   			                <!-- 未登陆 -->
+	   			                <li><a href="login.html">LOGIN</a></li>
+	   			                <!-- 已经登陆 -->
 
-	   					<!-- 
+	   			                <!-- 
 							<li><a href="#">ME</a></li>
 							<li><a href="#">LOG OUT</a></li> 
 						-->
-	   				</ul>
-	   			</li>
-	   		</ul>
-	   	</nav> <!-- end main-nav-wrap -->
+	   			            </ul>
+	   			        </li>
+	   			    </ul>
+	   			</nav> <!-- end main-nav-wrap -->
 			  		
    	</div>     		
    	
@@ -138,8 +151,8 @@
 						<h1 class="entry-title"><a href="single-standard.html">标题</a></h1>
 						
 					</div>
-							<div class="entry-excerpt">
-								文章正文
+							<div class="entry-excerpt product-buyer-name">
+								文章正文文章正文文章正文文章正文文章正文文章正文
 							</div>
 				</div>
 
@@ -152,13 +165,9 @@
    	<div class="row">
    		
    		<nav class="pagination">
-		      <span class="page-numbers prev inactive">Prev</span>
-		   		<a href="#" class="page-numbers current">1</a>
-				<a href="#" class="page-numbers">2</a>
-				<a href="#" class="page-numbers">3</a>
-				<a href="#" class="page-numbers">4</a>
-				<a href="#" class="page-numbers">5</a>
-				<a href="#" class="page-numbers next">Next</a>
+			   <ul id="pagination">
+
+				</ul>
 	      </nav>
 
    	</div>
@@ -216,17 +225,19 @@
 
    </footer>  
 
-   <div id="preloader"> 
+   <!-- <div id="preloader"> 
     	<div id="loader"></div>
-   </div> 
+   </div>  -->
 
    <!-- Java Script
    ================================================== --> 
-   <script src="js/jquery.js"></script>
-   <script src="js/plugins.js"></script>
-   <script src="js/jquery.appear.js"></script>
-   <script src="js/main.js"></script>
-   <script src="js/page_js/mian.js"></script>
+   	<script src="js/jquery.js"></script>
+   	<script src="js/jqPaginator.js"></script>
+   	<script src="js/page_js/mian.js"></script>
+   	<script src="js/plugins.js"></script>
+   	<script src="js/jquery.appear.js"></script>
+
+   	<script data-url="js/main.js"></script>
 </body>
 
 </html>

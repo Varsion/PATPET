@@ -28,4 +28,30 @@ class User extends \Illuminate\Foundation\Auth\User implements JWTSubject,Authen
     {
         return self::getKey();
     }
+
+
+    public static function createUser($array = [])
+    {
+        try {
+            return self::create($array) ?
+                true :
+                false;
+        } catch (\Exception $e) {
+            logError("User Create Failed", [$e->getMessage()]);
+            return false;
+        }
+    }
+
+
+    public static function getUserInfo($UserId, $array = [])
+    {
+        try {
+            return $array == null ?
+                self::where('id', $UserId)->get() :
+                self::where('id', $UserId)->get($array);
+        } catch (\Exception $e) {
+            logError("User Info get Failed", [$e->getMessage()]);
+            return null;
+        }
+    }
 }

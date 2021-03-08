@@ -1085,9 +1085,9 @@ input::-moz-focus-inner {
 
 /* animation stuff - (_common-styles.scss) 
  * ------------------------------------------------------------------- */
-.js .animate-this {
+/* .js .animate-this {
 	opacity: 0;
-}
+} */
 .oldie .animate-this
 .no-cssanimations .animate-this {
 	opacity: 1;
