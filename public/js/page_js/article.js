@@ -36,7 +36,28 @@ function getQueryString(name) {
  }
 
  function comment(){
-
+    var Data = new FormData;
+    Data.append("article",getQueryString('article'));
+    Data.append("comment",$("#comment_input").val());
+    $.ajax({
+        async: false,
+        processData: false,
+        type: "POST",
+        url:'/api/comment/new',
+        data:Data,
+        contentType : false,
+        dataType: "json",
+        success: function (data) {
+            if(data.code == 200){
+                alert("Comment Submit Success");
+            } else {
+                alert("Comment Submit Error");
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Comment Submit Error");
+        }
+    });
  }
 
 
