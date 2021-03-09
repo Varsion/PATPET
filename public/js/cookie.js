@@ -31,3 +31,5 @@ function DelCookie(name) {
 function gettoken(){
     return GetCookie("token");
 }
+
+
