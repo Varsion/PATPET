@@ -36,9 +36,15 @@ function getQueryString(name) {
  }
 
  function comment(){
+
+    if(!gettoken()){
+        alert('Please Login First');
+        window.location.href = "login.html";
+    }
     var Data = new FormData;
     Data.append("article",getQueryString('article'));
     Data.append("comment",$("#comment_input").val());
+
     $.ajax({
         async: false,
         processData: false,
@@ -73,7 +79,7 @@ $().ready(function () {
         str = `
         <div class="content-media">
         <div class="post-thumb" style="text-align: center;">
-            <img src="images/thumbs/diagonal-building.jpg">
+            <img src="${data.data.path}">
         </div>
     </div>
 

@@ -27,7 +27,6 @@
    ================================================== -->
     <script src="js/modernizr.js"></script>
     <script src="js/pace.min.js"></script>
-    <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
     <script src="js/modernizr.custom.js"></script>
     <script src="js/mfb.js"></script>
 
@@ -66,14 +65,8 @@
                     <li>
                         <a href="contact.html" title=""> CONTACT </a>
                     </li>
-                    <li class="has-children current">
-                        <a href="#2" title="">USER</a>
-                        <ul class="sub-menu">
-
-							<li><a href="userPage.html">ME</a></li>
-							<li><a href="#">LOG OUT</a></li>
-
-                        </ul>
+                    <li class="current">
+                        <a href="/userPage.html" title="">USER</a>
                     </li>
                 </ul>
             </nav> <!-- end main-nav-wrap -->
@@ -120,30 +113,33 @@
             <div class="col-twelve">
                 <section id="bricks">
 
-                    <form name="cForm" id="cForm" method="post" action="" style="width: 80%;">
+                    <form name="cForm" id="cForm" style="width: 80%;">
                         <fieldset>
 
                             <div class="form-field" style="width: 300px;">
                                 <h3>Title:</h3>
-                                <input name="title" type="text" id="title" class="full-width" placeholder="Title" value="">
+                                <input name="art_title" type="text" id="art_title" class="full-width" placeholder="Title" value="">
                             </div>
 
                             <div class="form-field" style="width: 300px;">
                                 <h3>Tag:</h3>
-                                <input name="Tag" type="text" id="Tag" class="full-width" placeholder="Tag" value="">
+                                <select name="art_tag" id="art_tag">
+                                </select>
                             </div>
 
                             <div class="form-field">
                                 <h3>Hero image:</h3>
-                                <input name="hero" type="file" id="hero">
+                                <input name="pic" type="file" id="pic">
                             </div>
 
                             <div class="message form-field">
                                 <h3>Content:</h3>
-                                <textarea name="desc"" id=" desc" class="full-width" placeholder="Content..."></textarea>
+                                {{-- <textarea name="desc"" id="desc" class="full-width" placeholder="Content..."></textarea> --}}
+                                <script id="ue-container" name="content" id="content" type="text/plain" style="height:300px;"></script>
+
                             </div>
 
-                            <button type="submit" class="submit button-primary full-width-on-mobile">Release Now</button>
+                            <button type="button" class="submit button-primary full-width-on-mobile" onclick="release();">Release Now</button>
 
                         </fieldset>
                     </form> <!-- end form -->
@@ -225,4 +221,17 @@
 </body>
 <script src="js/ytmenu.js"></script>
 
+<!-- ueditor-mz 配置文件 -->
+<script type="text/javascript" src="{{asset('ueditor/ueditor.config.js')}}"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="{{asset('ueditor/ueditor.all.js')}}"></script>
+<script type="text/javascript" charset="utf-8" src="{{asset('ueditor/lang/en/en.js')}}"></script>
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+    var ue = UE.getEditor('ue-container');
+    ue.ready(function(){
+        ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');
+    });
+</script>
+<script src="js/page_js/release.js"></script>
 </html>

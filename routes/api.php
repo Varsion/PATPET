@@ -67,10 +67,10 @@ Route::prefix('/relation')->group(function () {
 });
 
 /**
- * About Project Test
- * Test ...
+ * About Tags
+ * Test Success √
  */
-Route::prefix('/test')->group(function () {
-
-    Route::any('test','Controller@test');
+Route::prefix('/tag')->group(function () {
+    Route::get('tags', 'TagController@all');
+    Route::any('add', 'TagController@add');
 });

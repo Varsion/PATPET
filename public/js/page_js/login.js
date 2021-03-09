@@ -28,7 +28,7 @@ function login(){
             if(data.code == 200){
                 console.log(data.data.token);
                 Setcookie("token",data.data.token)
-                location.href = "index.html"
+                location.href = "main.html"
             }else{
                 alert("Email or Password Error");
             }
